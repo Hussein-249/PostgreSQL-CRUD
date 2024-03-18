@@ -9,11 +9,11 @@
 
 # Purpose
 
-This is an extracurricular project for me to practice Python, SQL, OOP, and Flask.
+This app is part of my coursework for a DBMS course.
 
-# Environment & Requriements
+# Environment & Requirements
 
-This project is being developed with Python 3.11
+This project was written using Python 3.11.
 
 It requires the ```psycopg2``` library for map features, which can be installed with 
 ```

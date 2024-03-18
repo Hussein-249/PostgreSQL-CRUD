@@ -6,6 +6,7 @@ def connect_database():
     print("Establishing database connection...")
 
     try:
+        # change credentials as needed
         postgres_connection = psycopg2.connect(database="postgres", user="postgres",
                                                password="postgres", host="localhost",
                                                port="5432")
