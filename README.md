@@ -20,19 +20,24 @@ It requires the ```psycopg2``` library for map features, which can be installed 
 pip install psycopg2
 ```
 
-# Development Checklists
-### Core Features Supported
-- [x] Automatically creates and populates table upon start
-- [x] Provides users with menu
-- [x] Adds students via addStudent()
-- [x] Retrieves all students via getAllStudents()
-- [x] updates student emails via updateStudentEmail()
-- [x] provides delete functionality via deleteStudent()
+# Execution Instructions
+## Windows
+- Clone this repository
+- Before continuing, modify the setup.py file, lines 10-12, as needed. This app assumes that a default postgres user has been set up, and it attempts to create a table in the postgres database. If you want to change this, then modify these lines:
+```python
+postgres_connection = psycopg2.connect(database="postgres", user="postgres",
+                                               password="postgres", host="localhost",
+                                               port="5432")
+```
+- Create a virtual environment using ```python -m venv venv```. This creates a venv folder that will contain the necessary libraries
+- Activate the virtual environment with ```venv\Scripts\activate```. The shell should now indicate you are in the virtual environment.
+- Install the requirements with ```pip install -r requirements.txt```
+- Start the application with ```python main.py```
+- Once you are finished with the application, you can deactivate the virtual environment using ```deactivate```.
 
 # Documentation
-<a id="documentation"></a>
-
 ## setup.py
+<a id="documentation"></a>
 When main.py is executed, it first executes the setup_all() function from setup.py.
 This function established a connection to the database, and creates a student table and populates it based on the provided ```setup.sql``` file.
 NOTE: if a 'students' table already exists, this will throw an exception and the student in ```setup.sql``` will not be added to the students table.
@@ -45,7 +50,7 @@ Based on this digit input, main will hand off the task to the appropriate functi
 
 ## query.py
 
-query.py contains the backend code for ```addStudent, getAllStudents, updateStudentEmail, and deleteStudent()```.
+query.py contains the backend code for ```addStudent(), getAllStudents(), updateStudentEmail(), and deleteStudent()```.
 It reuses the connection function from query.py.
 
 For each function, it connects to the database and creates a cursor separately, to prevent the cursor from being open across functions.

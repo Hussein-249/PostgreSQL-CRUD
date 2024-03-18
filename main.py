@@ -71,6 +71,10 @@ def exit_msg():
     """ Display when exiting the program."""
     print(f'You have exited the program.')
     print(f'The final state of the database is as follows: ')
+    students = getAllStudents()
+    for student in students:
+        print(student)
+    print()
 
 
 if __name__ == '__main__':
